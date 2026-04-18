@@ -75,95 +75,6 @@ def load_program_data() -> None:
 # =============================
 
 
-def classify_intent(profile: IntakeProfile) -> ClassifiedIntent:
-    """Simple deterministic placeholder until you wire Claude in."""
-    text = f"{profile.free_text} {' '.join(profile.urgent_needs)}".lower()
-
-    if any(word in text for word in ["equipment", "mixer", "broken", "repair"]):
-        return ClassifiedIntent(
-            primary_intent="equipment_emergency",
-            urgency_level="this_week",
-            extracted_facts={"asset_type": "equipment"},
-            confidence=0.88,
-        )
-
-    if any(word in text for word in ["cashflow", "cash flow", "reimbursement", "bill", "bills"]):
-        return ClassifiedIntent(
-            primary_intent="cashflow_gap",
-            urgency_level="immediate",
-            extracted_facts={"financial_issue": "cashflow"},
-            confidence=0.84,
-        )
-
-    if any(word in text for word in ["rent", "eviction", "housing", "shelter"]):
-        return ClassifiedIntent(
-            primary_intent="housing_need",
-            urgency_level="immediate",
-            extracted_facts={"need": "housing"},
-            confidence=0.82,
-        )
-
-    return ClassifiedIntent(
-        primary_intent="general_assistance",
-        urgency_level="this_month",
-        extracted_facts={},
-        confidence=0.55,
-    )
-
-
-def build_action_plan(
-    profile: IntakeProfile,
-    intent: ClassifiedIntent,
-    ranked_matches: List[ProgramMatch],
-) -> List[ActionStep]:
-    """Deterministic starter action plan for hackathon MVP."""
-    steps: List[ActionStep] = []
-
-    if ranked_matches:
-        top = ranked_matches[0]
-        steps.append(
-            ActionStep(
-                description=f"Review {top.name} from {top.org_name} and gather the required documents.",
-                program_id=top.program_id,
-                is_parallel=False,
-            )
-        )
-
-        if top.documents_needed:
-            docs = ", ".join(top.documents_needed)
-            steps.append(
-                ActionStep(
-                    description=f"Prepare documents: {docs}.",
-                    program_id=top.program_id,
-                    is_parallel=True,
-                )
-            )
-
-    if intent.primary_intent == "equipment_emergency":
-        steps.append(
-            ActionStep(
-                description="Take a photo or invoice screenshot of the broken equipment so you can prove the need.",
-                is_parallel=True,
-            )
-        )
-    elif intent.primary_intent == "cashflow_gap":
-        steps.append(
-            ActionStep(
-                description="Collect the most recent bill, invoice, or reimbursement notice to show the timing gap.",
-                is_parallel=True,
-            )
-        )
-    elif intent.primary_intent == "housing_need":
-        steps.append(
-            ActionStep(
-                description="Save lease, eviction, or shelter-related paperwork before applying.",
-                is_parallel=True,
-            )
-        )
-
-    return steps
-
-
 def build_routing_result(session_id: str, profile: IntakeProfile) -> RoutingResult:
     """Run the pure-Python matching pipeline end-to-end."""
     intent = classify_intent(profile)
@@ -173,7 +84,7 @@ def build_routing_result(session_id: str, profile: IntakeProfile) -> RoutingResu
     raw_matches = traverse_programs(profile, PROGRAMS)
     ranked_matches = rank_matches(raw_matches, intent, top_k=15)
 
-    action_plan = build_action_plan(profile, intent, ranked_matches[:3])
+    action_plan = generate_action_plan(intent, ranked_matches[:3])
 
     fairness_flags: List[str] = []
     if profile.location.county and profile.location.county.lower() != "los angeles":

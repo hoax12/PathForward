@@ -11,8 +11,13 @@ from ai.client import get_client, get_model_name
 PROMPT_PATH = Path(__file__).resolve().parent / "prompts" / "extractor_v1.txt"
 
 
+class ExtractedAttribute(BaseModel):
+    key: str
+    value: str
+
+
 class ExtractionResult(BaseModel):
-    extracted_attributes: Dict[str, Any] = Field(default_factory=dict)
+    extracted_attributes: list[ExtractedAttribute] = Field(default_factory=list)
     confidence: float = Field(..., ge=0.0, le=1.0)
 
 
@@ -36,4 +41,4 @@ def extract_attributes(free_text: str) -> Dict[str, Any]:
         },
     )
 
-    return response.parsed.extracted_attributes
+    return {attr.key: attr.value for attr in (response.parsed.extracted_attributes or [])}

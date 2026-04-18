@@ -60,4 +60,23 @@ def generate_action_plan(intent: ClassifiedIntent, top_matches: List[ProgramMatc
         },
     )
 
-    return response.parsed.steps
+    if response.parsed is not None:
+        return response.parsed.steps
+
+    # Fallback to manual JSON parsing if the SDK natively failed to parse it
+    try:
+        raw_text = response.text or ""
+        raw_text = raw_text.strip()
+        if not raw_text:
+            return []
+            
+        if raw_text.startswith("```json"):
+            raw_text = raw_text[7:-3].strip()
+        elif raw_text.startswith("```"):
+            raw_text = raw_text[3:-3].strip()
+
+        data = json.loads(raw_text)
+        return ActionPlanOutput.model_validate(data).steps
+    except Exception as e:
+        print(f"Warning: Failed to parse action plan natively: {e}")
+        return []

@@ -2,11 +2,24 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from typing import Literal
+from pydantic import BaseModel, Field
 
 from ai.client import get_client, get_model_name
 from schemas import ClassifiedIntent, IntakeProfile
 
 PROMPT_PATH = Path(__file__).resolve().parent / "prompts" / "classifier_v1.txt"
+
+
+class ExtractedFact(BaseModel):
+    key: str
+    value: str
+
+class GeminiClassifiedIntent(BaseModel):
+    primary_intent: str
+    urgency_level: Literal["immediate", "this_week", "this_month"]
+    extracted_facts: list[ExtractedFact] = Field(default_factory=list)
+    confidence: float = Field(..., ge=0.0, le=1.0)
 
 
 def _load_prompt() -> str:
@@ -35,9 +48,15 @@ def classify_intent(profile: IntakeProfile) -> ClassifiedIntent:
         config={
             "system_instruction": prompt,
             "response_mime_type": "application/json",
-            "response_schema": ClassifiedIntent,
+            "response_schema": GeminiClassifiedIntent,
             "temperature": 0.0,
         },
     )
 
-    return response.parsed
+    parsed = response.parsed
+    return ClassifiedIntent(
+        primary_intent=parsed.primary_intent,
+        urgency_level=parsed.urgency_level,
+        extracted_facts={f.key: f.value for f in (parsed.extracted_facts or [])},
+        confidence=parsed.confidence,
+    )
