@@ -1,0 +1,47 @@
+{
+    "program_id": "prog_211la_utilities_001",
+    "name": "Emergency Utilities Assistance",
+    "org_id": "org_211la",
+    "org_name": "211 LA",
+    "program_type": "grant",
+    "description": "Short-term assistance for households facing utility shutoff risk or overdue utility bills.",
+    "max_amount": 1200,
+    "speed_to_fund": "same_day",
+    "eligibility_criteria": [
+        {
+            "id": "crit_la_county_resident",
+            "type": "must",
+            "field": "location.county",
+            "operator": "equals",
+            "value": "Los Angeles",
+            "description": "Household must be in Los Angeles County"
+        },
+        {
+            "id": "crit_utilities_need",
+            "type": "must",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "utilities",
+            "description": "Applicant has utility arrears or shutoff risk"
+        },
+        {
+            "id": "crit_income_prioritized",
+            "type": "preferred",
+            "field": "income_band",
+            "operator": "in",
+            "value": [
+                "0-20k",
+                "20-35k"
+            ],
+            "description": "Lower income households are prioritized"
+        }
+    ],
+    "documents_needed": [
+        "doc_utility_bill",
+        "doc_id",
+        "doc_income_proof"
+    ],
+    "application_url": "https://example.org/211la/emergency-utilities-assistance",
+    "source_url": "https://example.org/211la/source-page",
+    "data_verified_date": "2026-04-17T19:08:42.491004"
+}

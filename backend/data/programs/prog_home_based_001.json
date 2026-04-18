@@ -1,0 +1,48 @@
+{
+    "program_id": "prog_home_based_001",
+    "name": "Home-Based Business Stabilization Grant",
+    "org_id": "org_la_microbiz",
+    "org_name": "LA Microbusiness Coalition",
+    "program_type": "grant",
+    "description": "Support for home-based businesses needing urgent stabilization help to fulfill orders or recover from disruption.",
+    "max_amount": 3500,
+    "speed_to_fund": "1-3_days",
+    "eligibility_criteria": [
+        {
+            "id": "crit_home_based",
+            "type": "must",
+            "field": "business_type",
+            "operator": "in",
+            "value": [
+                "food",
+                "services",
+                "retail"
+            ],
+            "description": "Applicant runs a home-based microbusiness"
+        },
+        {
+            "id": "crit_la_county_business",
+            "type": "must",
+            "field": "location.county",
+            "operator": "equals",
+            "value": "Los Angeles",
+            "description": "Business is in Los Angeles County"
+        },
+        {
+            "id": "crit_urgent_equipment",
+            "type": "preferred",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "equipment",
+            "description": "Applicant needs equipment replacement"
+        }
+    ],
+    "documents_needed": [
+        "doc_business_license",
+        "doc_order_history",
+        "doc_equipment_quote"
+    ],
+    "application_url": "https://example.org/la-microbiz/home-based-stabilization",
+    "source_url": "https://example.org/la-microbiz/source-page",
+    "data_verified_date": "2026-04-17T19:08:42.491827"
+}

@@ -1,0 +1,48 @@
+{
+    "program_id": "prog_cdfi_working_001",
+    "name": "CDFI Community Working Capital Loan",
+    "org_id": "org_cdfi_ca",
+    "org_name": "California Community Development Financial Institution",
+    "program_type": "microloan",
+    "description": "Flexible small business loan from a community lender with lighter underwriting than traditional banks.",
+    "max_amount": 25000,
+    "speed_to_fund": "1-2_weeks",
+    "eligibility_criteria": [
+        {
+            "id": "crit_la_county_business",
+            "type": "must",
+            "field": "location.county",
+            "operator": "equals",
+            "value": "Los Angeles",
+            "description": "Business must operate in Los Angeles County"
+        },
+        {
+            "id": "crit_services_or_retail",
+            "type": "preferred",
+            "field": "business_type",
+            "operator": "in",
+            "value": [
+                "retail",
+                "services",
+                "food"
+            ],
+            "description": "Retail, services, or food businesses are prioritized"
+        },
+        {
+            "id": "crit_working_capital_need",
+            "type": "preferred",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "cashflow",
+            "description": "Business needs working capital"
+        }
+    ],
+    "documents_needed": [
+        "doc_business_license",
+        "doc_bank_statements",
+        "doc_income_proof"
+    ],
+    "application_url": "https://example.org/cdfi/community-working-capital",
+    "source_url": "https://example.org/cdfi/source-page",
+    "data_verified_date": "2026-04-17T19:08:42.490899"
+}

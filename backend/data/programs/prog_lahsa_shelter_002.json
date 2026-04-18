@@ -1,0 +1,35 @@
+{
+    "program_id": "prog_lahsa_shelter_002",
+    "name": "Temporary Shelter Placement Fund",
+    "org_id": "org_lahsa",
+    "org_name": "Los Angeles Homeless Services Authority",
+    "program_type": "grant",
+    "description": "Temporary shelter placement support for individuals experiencing homelessness or immediate risk of homelessness.",
+    "max_amount": 1500,
+    "speed_to_fund": "same_day",
+    "eligibility_criteria": [
+        {
+            "id": "crit_la_county_resident",
+            "type": "must",
+            "field": "location.county",
+            "operator": "equals",
+            "value": "Los Angeles",
+            "description": "Applicant must be in Los Angeles County"
+        },
+        {
+            "id": "crit_unhoused_or_risk",
+            "type": "must",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "housing",
+            "description": "Applicant is unhoused or at immediate risk"
+        }
+    ],
+    "documents_needed": [
+        "doc_id_optional",
+        "doc_referral"
+    ],
+    "application_url": "https://example.org/lahsa/temporary-shelter-placement",
+    "source_url": "https://example.org/lahsa/source-page",
+    "data_verified_date": "2026-04-17T19:08:42.490664"
+}

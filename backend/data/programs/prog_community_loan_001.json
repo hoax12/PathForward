@@ -1,0 +1,49 @@
+{
+    "program_id": "prog_community_loan_001",
+    "name": "Community Bridge Loan",
+    "org_id": "org_cdfi_la",
+    "org_name": "Community Development Finance LA",
+    "program_type": "microloan",
+    "description": "Short-term bridge loan for microbusinesses needing liquidity while waiting on payments or reimbursements.",
+    "max_amount": 15000,
+    "speed_to_fund": "1-3_days",
+    "eligibility_criteria": [
+        {
+            "id": "crit_la_county_business",
+            "type": "must",
+            "field": "location.county",
+            "operator": "equals",
+            "value": "Los Angeles",
+            "description": "Business must operate in Los Angeles County"
+        },
+        {
+            "id": "crit_revenue_range",
+            "type": "preferred",
+            "field": "monthly_revenue",
+            "operator": "in",
+            "value": [
+                3000,
+                5000,
+                8000,
+                12000
+            ],
+            "description": "Lower-to-mid revenue businesses are prioritized"
+        },
+        {
+            "id": "crit_bridge_need",
+            "type": "must",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "cashflow",
+            "description": "Applicant needs bridge funding"
+        }
+    ],
+    "documents_needed": [
+        "doc_bank_statements",
+        "doc_invoices",
+        "doc_revenue_proof"
+    ],
+    "application_url": "https://example.org/cdfi-la/community-bridge-loan",
+    "source_url": "https://example.org/cdfi-la/source-page",
+    "data_verified_date": "2026-04-17T19:08:42.491937"
+}

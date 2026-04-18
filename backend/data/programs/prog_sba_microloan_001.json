@@ -1,0 +1,44 @@
+{
+    "program_id": "prog_sba_microloan_001",
+    "name": "Microloan Starter Loan",
+    "org_id": "org_sba",
+    "org_name": "U.S. Small Business Administration",
+    "program_type": "microloan",
+    "description": "Small-dollar loan for startup and very small business working capital needs.",
+    "max_amount": 50000,
+    "speed_to_fund": "1-2_weeks",
+    "eligibility_criteria": [
+        {
+            "id": "crit_us_business",
+            "type": "must",
+            "field": "location.county",
+            "operator": "exists",
+            "value": true,
+            "description": "Business location information is provided"
+        },
+        {
+            "id": "crit_small_revenue",
+            "type": "must",
+            "field": "monthly_revenue",
+            "operator": "lte",
+            "value": 15000,
+            "description": "Business has modest monthly revenue"
+        },
+        {
+            "id": "crit_cashflow_need",
+            "type": "preferred",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "cashflow",
+            "description": "Working capital need is present"
+        }
+    ],
+    "documents_needed": [
+        "doc_business_plan",
+        "doc_tax_returns",
+        "doc_financial_statement"
+    ],
+    "application_url": "https://example.org/sba/microloan-starter",
+    "source_url": "https://example.org/sba/source-page",
+    "data_verified_date": "2026-04-17T19:08:42.490781"
+}

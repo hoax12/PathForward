@@ -1,0 +1,44 @@
+{
+    "program_id": "prog_childcare_support_001",
+    "name": "Childcare Stabilization Grant",
+    "org_id": "org_la_childcare",
+    "org_name": "Los Angeles Childcare Network",
+    "program_type": "grant",
+    "description": "Support for family childcare providers and small childcare operators to stabilize operations and cover urgent costs.",
+    "max_amount": 7500,
+    "speed_to_fund": "1-2_weeks",
+    "eligibility_criteria": [
+        {
+            "id": "crit_childcare_business",
+            "type": "must",
+            "field": "business_type",
+            "operator": "equals",
+            "value": "childcare",
+            "description": "Applicant operates a childcare-related business"
+        },
+        {
+            "id": "crit_la_county",
+            "type": "must",
+            "field": "location.county",
+            "operator": "equals",
+            "value": "Los Angeles",
+            "description": "Business is located in Los Angeles County"
+        },
+        {
+            "id": "crit_expense_need",
+            "type": "preferred",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "equipment",
+            "description": "Applicant needs supplies or equipment"
+        }
+    ],
+    "documents_needed": [
+        "doc_license",
+        "doc_business_profile",
+        "doc_expense_quote"
+    ],
+    "application_url": "https://example.org/childcare/stabilization-grant",
+    "source_url": "https://example.org/childcare/source-page",
+    "data_verified_date": "2026-04-17T19:08:42.491388"
+}

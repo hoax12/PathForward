@@ -1,0 +1,1128 @@
+{
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+        {
+            "type": "Program",
+            "name": "Small Business Fee Waiver Support",
+            "speed": "1-2_weeks",
+            "amount": 2000,
+            "id": "prog_gobiz_fee_001"
+        },
+        {
+            "type": "Org",
+            "name": "California Governor's Office of Business and Economic Development",
+            "id": "org_gobiz_ca"
+        },
+        {
+            "type": "Criterion",
+            "description": "Business location is provided",
+            "field": "location.city",
+            "operator": "exists",
+            "value": true,
+            "id": "crit_ca_business"
+        },
+        {
+            "type": "Criterion",
+            "description": "Applicant needs licensing or renewal support",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "licensing",
+            "id": "crit_renewal_need"
+        },
+        {
+            "type": "Criterion",
+            "description": "Business has modest monthly revenue",
+            "field": "monthly_revenue",
+            "operator": "lte",
+            "value": 15000,
+            "id": "crit_small_revenue"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_business_license"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_fee_notice"
+        },
+        {
+            "type": "Program",
+            "name": "Small Business Equipment Micro-Grant",
+            "speed": "1-3_days",
+            "amount": 5000,
+            "id": "prog_ewdd_equip_001"
+        },
+        {
+            "type": "Org",
+            "name": "Los Angeles Economic and Workforce Development Department",
+            "id": "org_ewdd_la"
+        },
+        {
+            "type": "Criterion",
+            "description": "Business must be in Los Angeles County",
+            "field": "location.county",
+            "operator": "equals",
+            "value": "Los Angeles",
+            "id": "crit_la_county_business"
+        },
+        {
+            "type": "Criterion",
+            "description": "Applicant must need equipment repair or replacement",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "equipment",
+            "id": "crit_equipment_need"
+        },
+        {
+            "type": "Criterion",
+            "description": "Smaller food businesses are prioritized",
+            "field": "monthly_revenue",
+            "operator": "lte",
+            "value": 12000,
+            "id": "crit_revenue_soft_cap"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_equipment_quote"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_tax_id"
+        },
+        {
+            "type": "Program",
+            "name": "Emergency Utilities Assistance",
+            "speed": "same_day",
+            "amount": 1200,
+            "id": "prog_211la_utilities_001"
+        },
+        {
+            "type": "Org",
+            "name": "211 LA",
+            "id": "org_211la"
+        },
+        {
+            "type": "Criterion",
+            "description": "Applicant must be in Los Angeles County",
+            "field": "location.county",
+            "operator": "equals",
+            "value": "Los Angeles",
+            "id": "crit_la_county_resident"
+        },
+        {
+            "type": "Criterion",
+            "description": "Applicant has utility arrears or shutoff risk",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "utilities",
+            "id": "crit_utilities_need"
+        },
+        {
+            "type": "Criterion",
+            "description": "Lower income households are prioritized",
+            "field": "income_band",
+            "operator": "in",
+            "value": [
+                "0-20k",
+                "20-35k"
+            ],
+            "id": "crit_income_prioritized"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_utility_bill"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_id"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_income_proof"
+        },
+        {
+            "type": "Program",
+            "name": "Home-Based Business Stabilization Grant",
+            "speed": "1-3_days",
+            "amount": 3500,
+            "id": "prog_home_based_001"
+        },
+        {
+            "type": "Org",
+            "name": "LA Microbusiness Coalition",
+            "id": "org_la_microbiz"
+        },
+        {
+            "type": "Criterion",
+            "description": "Applicant runs a home-based microbusiness",
+            "field": "business_type",
+            "operator": "in",
+            "value": [
+                "food",
+                "services",
+                "retail"
+            ],
+            "id": "crit_home_based"
+        },
+        {
+            "type": "Criterion",
+            "description": "Applicant needs equipment replacement",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "equipment",
+            "id": "crit_urgent_equipment"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_order_history"
+        },
+        {
+            "type": "Program",
+            "name": "Service Worker Emergency Grant",
+            "speed": "same_day",
+            "amount": 1800,
+            "id": "prog_service_worker_001"
+        },
+        {
+            "type": "Org",
+            "name": "LA Workforce Support Network",
+            "id": "org_la_workforce"
+        },
+        {
+            "type": "Criterion",
+            "description": "Applicant works as a service worker or contractor",
+            "field": "employment_status",
+            "operator": "in",
+            "value": [
+                "employee",
+                "1099_contractor"
+            ],
+            "id": "crit_service_worker"
+        },
+        {
+            "type": "Criterion",
+            "description": "Applicant is facing a near-term bill or cashflow problem",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "cashflow",
+            "id": "crit_bills_due"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_bill_due"
+        },
+        {
+            "type": "Program",
+            "name": "Food Support Rapid Referral",
+            "speed": "same_day",
+            "amount": 400,
+            "id": "prog_211la_food_002"
+        },
+        {
+            "type": "Criterion",
+            "description": "Applicant reports food insecurity",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "food",
+            "id": "crit_food_need"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_id_optional"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_household_info"
+        },
+        {
+            "type": "Program",
+            "name": "Temporary Shelter Placement Fund",
+            "speed": "same_day",
+            "amount": 1500,
+            "id": "prog_lahsa_shelter_002"
+        },
+        {
+            "type": "Org",
+            "name": "Los Angeles Homeless Services Authority",
+            "id": "org_lahsa"
+        },
+        {
+            "type": "Criterion",
+            "description": "Applicant is unhoused or at immediate risk",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "housing",
+            "id": "crit_unhoused_or_risk"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_referral"
+        },
+        {
+            "type": "Program",
+            "name": "Childcare Stabilization Grant",
+            "speed": "1-2_weeks",
+            "amount": 7500,
+            "id": "prog_childcare_support_001"
+        },
+        {
+            "type": "Org",
+            "name": "Los Angeles Childcare Network",
+            "id": "org_la_childcare"
+        },
+        {
+            "type": "Criterion",
+            "description": "Applicant operates a childcare-related business",
+            "field": "business_type",
+            "operator": "equals",
+            "value": "childcare",
+            "id": "crit_childcare_business"
+        },
+        {
+            "type": "Criterion",
+            "description": "Business is located in Los Angeles County",
+            "field": "location.county",
+            "operator": "equals",
+            "value": "Los Angeles",
+            "id": "crit_la_county"
+        },
+        {
+            "type": "Criterion",
+            "description": "Applicant needs supplies or equipment",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "equipment",
+            "id": "crit_expense_need"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_license"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_business_profile"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_expense_quote"
+        },
+        {
+            "type": "Program",
+            "name": "Emergency Rental Support",
+            "speed": "1-2_weeks",
+            "amount": 3000,
+            "id": "prog_lahsa_rental_001"
+        },
+        {
+            "type": "Criterion",
+            "description": "Household must be in Los Angeles County",
+            "field": "location.county",
+            "operator": "equals",
+            "value": "Los Angeles",
+            "id": "crit_la_county_household"
+        },
+        {
+            "type": "Criterion",
+            "description": "Applicant has a housing emergency",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "housing",
+            "id": "crit_housing_need"
+        },
+        {
+            "type": "Criterion",
+            "description": "Lower income bands are prioritized",
+            "field": "income_band",
+            "operator": "in",
+            "value": [
+                "0-20k",
+                "20-35k",
+                "35-50k"
+            ],
+            "id": "crit_income_band"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_lease"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_eviction_notice"
+        },
+        {
+            "type": "Program",
+            "name": "Retail Modernization Grant",
+            "speed": "1-2_weeks",
+            "amount": 4000,
+            "id": "prog_retail_modernization_001"
+        },
+        {
+            "type": "Org",
+            "name": "LA Small Business Recovery Fund",
+            "id": "org_la_smallbiz"
+        },
+        {
+            "type": "Criterion",
+            "description": "Applicant operates a retail business",
+            "field": "business_type",
+            "operator": "equals",
+            "value": "retail",
+            "id": "crit_retail_business"
+        },
+        {
+            "type": "Criterion",
+            "description": "Business city is provided",
+            "field": "location.city",
+            "operator": "exists",
+            "value": true,
+            "id": "crit_la_city_known"
+        },
+        {
+            "type": "Criterion",
+            "description": "Applicant needs equipment or inventory support",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "equipment",
+            "id": "crit_equipment_or_inventory"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_vendor_quote"
+        },
+        {
+            "type": "Program",
+            "name": "CDFI Community Working Capital Loan",
+            "speed": "1-2_weeks",
+            "amount": 25000,
+            "id": "prog_cdfi_working_001"
+        },
+        {
+            "type": "Org",
+            "name": "California Community Development Financial Institution",
+            "id": "org_cdfi_ca"
+        },
+        {
+            "type": "Criterion",
+            "description": "Retail, services, or food businesses are prioritized",
+            "field": "business_type",
+            "operator": "in",
+            "value": [
+                "retail",
+                "services",
+                "food"
+            ],
+            "id": "crit_services_or_retail"
+        },
+        {
+            "type": "Criterion",
+            "description": "Business needs working capital",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "cashflow",
+            "id": "crit_working_capital_need"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_bank_statements"
+        },
+        {
+            "type": "Program",
+            "name": "Healthcare Worker Relief Fund",
+            "speed": "1-3_days",
+            "amount": 2500,
+            "id": "prog_healthcare_relief_001"
+        },
+        {
+            "type": "Org",
+            "name": "Los Angeles Healthcare Relief Coalition",
+            "id": "org_lahc_relief"
+        },
+        {
+            "type": "Criterion",
+            "description": "Applicant works in healthcare or caregiving",
+            "field": "business_type",
+            "operator": "equals",
+            "value": "healthcare",
+            "id": "crit_healthcare_worker"
+        },
+        {
+            "type": "Criterion",
+            "description": "Applicant is self-employed or 1099",
+            "field": "employment_status",
+            "operator": "in",
+            "value": [
+                "self_employed",
+                "1099_contractor"
+            ],
+            "id": "crit_1099_or_self_employed"
+        },
+        {
+            "type": "Criterion",
+            "description": "Applicant has a short-term cash flow gap",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "cashflow",
+            "id": "crit_cashflow_gap"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_1099"
+        },
+        {
+            "type": "Program",
+            "name": "Community Bridge Loan",
+            "speed": "1-3_days",
+            "amount": 15000,
+            "id": "prog_community_loan_001"
+        },
+        {
+            "type": "Org",
+            "name": "Community Development Finance LA",
+            "id": "org_cdfi_la"
+        },
+        {
+            "type": "Criterion",
+            "description": "Lower-to-mid revenue businesses are prioritized",
+            "field": "monthly_revenue",
+            "operator": "in",
+            "value": [
+                3000,
+                5000,
+                8000,
+                12000
+            ],
+            "id": "crit_revenue_range"
+        },
+        {
+            "type": "Criterion",
+            "description": "Applicant needs bridge funding",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "cashflow",
+            "id": "crit_bridge_need"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_invoices"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_revenue_proof"
+        },
+        {
+            "type": "Program",
+            "name": "Microloan Starter Loan",
+            "speed": "1-2_weeks",
+            "amount": 50000,
+            "id": "prog_sba_microloan_001"
+        },
+        {
+            "type": "Org",
+            "name": "U.S. Small Business Administration",
+            "id": "org_sba"
+        },
+        {
+            "type": "Criterion",
+            "description": "Business location information is provided",
+            "field": "location.county",
+            "operator": "exists",
+            "value": true,
+            "id": "crit_us_business"
+        },
+        {
+            "type": "Criterion",
+            "description": "Working capital need is present",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "cashflow",
+            "id": "crit_cashflow_need"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_business_plan"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_tax_returns"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_financial_statement"
+        },
+        {
+            "type": "Program",
+            "name": "Neighborhood Food Vendor Recovery Grant",
+            "speed": "1-3_days",
+            "amount": 6000,
+            "id": "prog_food_vendor_001"
+        },
+        {
+            "type": "Criterion",
+            "description": "Applicant operates a food business",
+            "field": "business_type",
+            "operator": "equals",
+            "value": "food",
+            "id": "crit_food_business"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_recent_sales"
+        },
+        {
+            "type": "DocumentType",
+            "id": "doc_expense_receipts"
+        }
+    ],
+    "edges": [
+        {
+            "relationship": "OFFERED_BY",
+            "source": "prog_gobiz_fee_001",
+            "target": "org_gobiz_ca"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_gobiz_fee_001",
+            "target": "crit_ca_business"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_gobiz_fee_001",
+            "target": "crit_renewal_need"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "preferred",
+            "source": "prog_gobiz_fee_001",
+            "target": "crit_small_revenue"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_gobiz_fee_001",
+            "target": "doc_business_license"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_gobiz_fee_001",
+            "target": "doc_fee_notice"
+        },
+        {
+            "relationship": "OFFERED_BY",
+            "source": "prog_ewdd_equip_001",
+            "target": "org_ewdd_la"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_ewdd_equip_001",
+            "target": "crit_la_county_business"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_ewdd_equip_001",
+            "target": "crit_equipment_need"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "preferred",
+            "source": "prog_ewdd_equip_001",
+            "target": "crit_revenue_soft_cap"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_ewdd_equip_001",
+            "target": "doc_business_license"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_ewdd_equip_001",
+            "target": "doc_equipment_quote"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_ewdd_equip_001",
+            "target": "doc_tax_id"
+        },
+        {
+            "relationship": "OFFERED_BY",
+            "source": "prog_211la_utilities_001",
+            "target": "org_211la"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_211la_utilities_001",
+            "target": "crit_la_county_resident"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_211la_utilities_001",
+            "target": "crit_utilities_need"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "preferred",
+            "source": "prog_211la_utilities_001",
+            "target": "crit_income_prioritized"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_211la_utilities_001",
+            "target": "doc_utility_bill"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_211la_utilities_001",
+            "target": "doc_id"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_211la_utilities_001",
+            "target": "doc_income_proof"
+        },
+        {
+            "relationship": "OFFERED_BY",
+            "source": "prog_home_based_001",
+            "target": "org_la_microbiz"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_home_based_001",
+            "target": "crit_home_based"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_home_based_001",
+            "target": "crit_la_county_business"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "preferred",
+            "source": "prog_home_based_001",
+            "target": "crit_urgent_equipment"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_home_based_001",
+            "target": "doc_business_license"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_home_based_001",
+            "target": "doc_order_history"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_home_based_001",
+            "target": "doc_equipment_quote"
+        },
+        {
+            "relationship": "OFFERED_BY",
+            "source": "prog_service_worker_001",
+            "target": "org_la_workforce"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_service_worker_001",
+            "target": "crit_service_worker"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_service_worker_001",
+            "target": "crit_la_county_resident"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_service_worker_001",
+            "target": "crit_bills_due"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_service_worker_001",
+            "target": "doc_id"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_service_worker_001",
+            "target": "doc_income_proof"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_service_worker_001",
+            "target": "doc_bill_due"
+        },
+        {
+            "relationship": "OFFERED_BY",
+            "source": "prog_211la_food_002",
+            "target": "org_211la"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_211la_food_002",
+            "target": "crit_la_county_resident"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_211la_food_002",
+            "target": "crit_food_need"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_211la_food_002",
+            "target": "doc_id_optional"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_211la_food_002",
+            "target": "doc_household_info"
+        },
+        {
+            "relationship": "OFFERED_BY",
+            "source": "prog_lahsa_shelter_002",
+            "target": "org_lahsa"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_lahsa_shelter_002",
+            "target": "crit_la_county_resident"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_lahsa_shelter_002",
+            "target": "crit_unhoused_or_risk"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_lahsa_shelter_002",
+            "target": "doc_id_optional"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_lahsa_shelter_002",
+            "target": "doc_referral"
+        },
+        {
+            "relationship": "OFFERED_BY",
+            "source": "prog_childcare_support_001",
+            "target": "org_la_childcare"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_childcare_support_001",
+            "target": "crit_childcare_business"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_childcare_support_001",
+            "target": "crit_la_county"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "preferred",
+            "source": "prog_childcare_support_001",
+            "target": "crit_expense_need"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_childcare_support_001",
+            "target": "doc_license"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_childcare_support_001",
+            "target": "doc_business_profile"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_childcare_support_001",
+            "target": "doc_expense_quote"
+        },
+        {
+            "relationship": "OFFERED_BY",
+            "source": "prog_lahsa_rental_001",
+            "target": "org_lahsa"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_lahsa_rental_001",
+            "target": "crit_la_county_household"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_lahsa_rental_001",
+            "target": "crit_housing_need"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "preferred",
+            "source": "prog_lahsa_rental_001",
+            "target": "crit_income_band"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_lahsa_rental_001",
+            "target": "doc_id"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_lahsa_rental_001",
+            "target": "doc_lease"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_lahsa_rental_001",
+            "target": "doc_income_proof"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_lahsa_rental_001",
+            "target": "doc_eviction_notice"
+        },
+        {
+            "relationship": "OFFERED_BY",
+            "source": "prog_retail_modernization_001",
+            "target": "org_la_smallbiz"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_retail_modernization_001",
+            "target": "crit_retail_business"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_retail_modernization_001",
+            "target": "crit_la_city_known"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "preferred",
+            "source": "prog_retail_modernization_001",
+            "target": "crit_equipment_or_inventory"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_retail_modernization_001",
+            "target": "doc_business_license"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_retail_modernization_001",
+            "target": "doc_vendor_quote"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_retail_modernization_001",
+            "target": "doc_income_proof"
+        },
+        {
+            "relationship": "OFFERED_BY",
+            "source": "prog_cdfi_working_001",
+            "target": "org_cdfi_ca"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_cdfi_working_001",
+            "target": "crit_la_county_business"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "preferred",
+            "source": "prog_cdfi_working_001",
+            "target": "crit_services_or_retail"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "preferred",
+            "source": "prog_cdfi_working_001",
+            "target": "crit_working_capital_need"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_cdfi_working_001",
+            "target": "doc_business_license"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_cdfi_working_001",
+            "target": "doc_bank_statements"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_cdfi_working_001",
+            "target": "doc_income_proof"
+        },
+        {
+            "relationship": "OFFERED_BY",
+            "source": "prog_healthcare_relief_001",
+            "target": "org_lahc_relief"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_healthcare_relief_001",
+            "target": "crit_healthcare_worker"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_healthcare_relief_001",
+            "target": "crit_1099_or_self_employed"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_healthcare_relief_001",
+            "target": "crit_cashflow_gap"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_healthcare_relief_001",
+            "target": "doc_1099"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_healthcare_relief_001",
+            "target": "doc_income_proof"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_healthcare_relief_001",
+            "target": "doc_bill_due"
+        },
+        {
+            "relationship": "OFFERED_BY",
+            "source": "prog_community_loan_001",
+            "target": "org_cdfi_la"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_community_loan_001",
+            "target": "crit_la_county_business"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "preferred",
+            "source": "prog_community_loan_001",
+            "target": "crit_revenue_range"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_community_loan_001",
+            "target": "crit_bridge_need"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_community_loan_001",
+            "target": "doc_bank_statements"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_community_loan_001",
+            "target": "doc_invoices"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_community_loan_001",
+            "target": "doc_revenue_proof"
+        },
+        {
+            "relationship": "OFFERED_BY",
+            "source": "prog_sba_microloan_001",
+            "target": "org_sba"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_sba_microloan_001",
+            "target": "crit_us_business"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_sba_microloan_001",
+            "target": "crit_small_revenue"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "preferred",
+            "source": "prog_sba_microloan_001",
+            "target": "crit_cashflow_need"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_sba_microloan_001",
+            "target": "doc_business_plan"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_sba_microloan_001",
+            "target": "doc_tax_returns"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_sba_microloan_001",
+            "target": "doc_financial_statement"
+        },
+        {
+            "relationship": "OFFERED_BY",
+            "source": "prog_food_vendor_001",
+            "target": "org_la_smallbiz"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_food_vendor_001",
+            "target": "crit_food_business"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "must",
+            "source": "prog_food_vendor_001",
+            "target": "crit_la_county_business"
+        },
+        {
+            "relationship": "REQUIRES",
+            "condition_type": "preferred",
+            "source": "prog_food_vendor_001",
+            "target": "crit_revenue_soft_cap"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_food_vendor_001",
+            "target": "doc_business_license"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_food_vendor_001",
+            "target": "doc_recent_sales"
+        },
+        {
+            "relationship": "REQUIRES_DOC",
+            "source": "prog_food_vendor_001",
+            "target": "doc_expense_receipts"
+        }
+    ]
+}

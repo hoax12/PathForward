@@ -1,0 +1,47 @@
+{
+    "program_id": "prog_service_worker_001",
+    "name": "Service Worker Emergency Grant",
+    "org_id": "org_la_workforce",
+    "org_name": "LA Workforce Support Network",
+    "program_type": "grant",
+    "description": "Emergency support for service workers dealing with sudden income interruption or urgent bills.",
+    "max_amount": 1800,
+    "speed_to_fund": "same_day",
+    "eligibility_criteria": [
+        {
+            "id": "crit_service_worker",
+            "type": "must",
+            "field": "employment_status",
+            "operator": "in",
+            "value": [
+                "employee",
+                "1099_contractor"
+            ],
+            "description": "Applicant works as a service worker or contractor"
+        },
+        {
+            "id": "crit_la_county_resident",
+            "type": "must",
+            "field": "location.county",
+            "operator": "equals",
+            "value": "Los Angeles",
+            "description": "Applicant must live in Los Angeles County"
+        },
+        {
+            "id": "crit_bills_due",
+            "type": "must",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "cashflow",
+            "description": "Applicant is facing a near-term bill or cashflow problem"
+        }
+    ],
+    "documents_needed": [
+        "doc_id",
+        "doc_income_proof",
+        "doc_bill_due"
+    ],
+    "application_url": "https://example.org/la-workforce/service-worker-emergency-grant",
+    "source_url": "https://example.org/la-workforce/source-page",
+    "data_verified_date": "2026-04-17T19:08:42.491720"
+}

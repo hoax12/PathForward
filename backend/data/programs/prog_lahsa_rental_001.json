@@ -1,0 +1,49 @@
+{
+    "program_id": "prog_lahsa_rental_001",
+    "name": "Emergency Rental Support",
+    "org_id": "org_lahsa",
+    "org_name": "Los Angeles Homeless Services Authority",
+    "program_type": "grant",
+    "description": "Short-term rental assistance for Los Angeles County residents facing housing instability or eviction risk.",
+    "max_amount": 3000,
+    "speed_to_fund": "1-2_weeks",
+    "eligibility_criteria": [
+        {
+            "id": "crit_la_county_household",
+            "type": "must",
+            "field": "location.county",
+            "operator": "equals",
+            "value": "Los Angeles",
+            "description": "Household must be in Los Angeles County"
+        },
+        {
+            "id": "crit_housing_need",
+            "type": "must",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "housing",
+            "description": "Applicant has a housing emergency"
+        },
+        {
+            "id": "crit_income_band",
+            "type": "preferred",
+            "field": "income_band",
+            "operator": "in",
+            "value": [
+                "0-20k",
+                "20-35k",
+                "35-50k"
+            ],
+            "description": "Lower income bands are prioritized"
+        }
+    ],
+    "documents_needed": [
+        "doc_id",
+        "doc_lease",
+        "doc_income_proof",
+        "doc_eviction_notice"
+    ],
+    "application_url": "https://example.org/lahsa/emergency-rental-support",
+    "source_url": "https://example.org/lahsa/source-page",
+    "data_verified_date": "2026-04-17T19:08:42.490351"
+}

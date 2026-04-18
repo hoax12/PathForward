@@ -1,0 +1,35 @@
+{
+    "program_id": "prog_211la_food_002",
+    "name": "Food Support Rapid Referral",
+    "org_id": "org_211la",
+    "org_name": "211 LA",
+    "program_type": "grant",
+    "description": "Fast referral path for households experiencing food insecurity or short-term food shortage.",
+    "max_amount": 400,
+    "speed_to_fund": "same_day",
+    "eligibility_criteria": [
+        {
+            "id": "crit_la_county_resident",
+            "type": "must",
+            "field": "location.county",
+            "operator": "equals",
+            "value": "Los Angeles",
+            "description": "Household must be in Los Angeles County"
+        },
+        {
+            "id": "crit_food_need",
+            "type": "must",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "food",
+            "description": "Applicant reports food insecurity"
+        }
+    ],
+    "documents_needed": [
+        "doc_id_optional",
+        "doc_household_info"
+    ],
+    "application_url": "https://example.org/211la/food-support-rapid-referral",
+    "source_url": "https://example.org/211la/source-page",
+    "data_verified_date": "2026-04-17T19:08:42.491107"
+}

@@ -1,0 +1,47 @@
+{
+    "program_id": "prog_healthcare_relief_001",
+    "name": "Healthcare Worker Relief Fund",
+    "org_id": "org_lahc_relief",
+    "org_name": "Los Angeles Healthcare Relief Coalition",
+    "program_type": "grant",
+    "description": "Emergency relief for independent healthcare workers facing cash flow interruptions and urgent bills.",
+    "max_amount": 2500,
+    "speed_to_fund": "1-3_days",
+    "eligibility_criteria": [
+        {
+            "id": "crit_healthcare_worker",
+            "type": "must",
+            "field": "business_type",
+            "operator": "equals",
+            "value": "healthcare",
+            "description": "Applicant works in healthcare or caregiving"
+        },
+        {
+            "id": "crit_1099_or_self_employed",
+            "type": "must",
+            "field": "employment_status",
+            "operator": "in",
+            "value": [
+                "self_employed",
+                "1099_contractor"
+            ],
+            "description": "Applicant is self-employed or 1099"
+        },
+        {
+            "id": "crit_cashflow_gap",
+            "type": "must",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "cashflow",
+            "description": "Applicant has a short-term cash flow gap"
+        }
+    ],
+    "documents_needed": [
+        "doc_1099",
+        "doc_income_proof",
+        "doc_bill_due"
+    ],
+    "application_url": "https://example.org/relief/healthcare-worker-fund",
+    "source_url": "https://example.org/relief/source-page",
+    "data_verified_date": "2026-04-17T19:08:42.491292"
+}

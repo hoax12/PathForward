@@ -1,0 +1,44 @@
+{
+    "program_id": "prog_food_vendor_001",
+    "name": "Neighborhood Food Vendor Recovery Grant",
+    "org_id": "org_la_smallbiz",
+    "org_name": "LA Small Business Recovery Fund",
+    "program_type": "grant",
+    "description": "Recovery grant for food vendors and small restaurants that need urgent operating support after revenue disruption.",
+    "max_amount": 6000,
+    "speed_to_fund": "1-3_days",
+    "eligibility_criteria": [
+        {
+            "id": "crit_food_business",
+            "type": "must",
+            "field": "business_type",
+            "operator": "equals",
+            "value": "food",
+            "description": "Applicant operates a food business"
+        },
+        {
+            "id": "crit_la_county_business",
+            "type": "must",
+            "field": "location.county",
+            "operator": "equals",
+            "value": "Los Angeles",
+            "description": "Business must be in Los Angeles County"
+        },
+        {
+            "id": "crit_revenue_soft_cap",
+            "type": "preferred",
+            "field": "monthly_revenue",
+            "operator": "lte",
+            "value": 12000,
+            "description": "Smaller food businesses are prioritized"
+        }
+    ],
+    "documents_needed": [
+        "doc_business_license",
+        "doc_recent_sales",
+        "doc_expense_receipts"
+    ],
+    "application_url": "https://example.org/la-smallbiz/food-vendor-recovery",
+    "source_url": "https://example.org/la-smallbiz/source-page",
+    "data_verified_date": "2026-04-17T19:08:42.491495"
+}

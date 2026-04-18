@@ -1,0 +1,43 @@
+{
+    "program_id": "prog_gobiz_fee_001",
+    "name": "Small Business Fee Waiver Support",
+    "org_id": "org_gobiz_ca",
+    "org_name": "California Governor's Office of Business and Economic Development",
+    "program_type": "grant",
+    "description": "Fee relief support for qualifying small businesses navigating licensing or renewal costs.",
+    "max_amount": 2000,
+    "speed_to_fund": "1-2_weeks",
+    "eligibility_criteria": [
+        {
+            "id": "crit_ca_business",
+            "type": "must",
+            "field": "location.city",
+            "operator": "exists",
+            "value": true,
+            "description": "Business location is provided"
+        },
+        {
+            "id": "crit_renewal_need",
+            "type": "must",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "licensing",
+            "description": "Applicant needs licensing or renewal support"
+        },
+        {
+            "id": "crit_small_revenue",
+            "type": "preferred",
+            "field": "monthly_revenue",
+            "operator": "lte",
+            "value": 10000,
+            "description": "Smaller operations are prioritized"
+        }
+    ],
+    "documents_needed": [
+        "doc_business_license",
+        "doc_fee_notice"
+    ],
+    "application_url": "https://example.org/gobiz/fee-waiver-support",
+    "source_url": "https://example.org/gobiz/source-page",
+    "data_verified_date": "2026-04-17T19:08:42.491197"
+}

@@ -1,0 +1,44 @@
+{
+    "program_id": "prog_ewdd_equip_001",
+    "name": "Small Business Equipment Micro-Grant",
+    "org_id": "org_ewdd_la",
+    "org_name": "Los Angeles Economic and Workforce Development Department",
+    "program_type": "grant",
+    "description": "Micro-grant for small businesses in Los Angeles County that need urgent equipment repair or replacement.",
+    "max_amount": 5000,
+    "speed_to_fund": "1-3_days",
+    "eligibility_criteria": [
+        {
+            "id": "crit_la_county_business",
+            "type": "must",
+            "field": "location.county",
+            "operator": "equals",
+            "value": "Los Angeles",
+            "description": "Business must be located in Los Angeles County"
+        },
+        {
+            "id": "crit_equipment_need",
+            "type": "must",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "equipment",
+            "description": "Applicant must need equipment repair or replacement"
+        },
+        {
+            "id": "crit_revenue_soft_cap",
+            "type": "preferred",
+            "field": "monthly_revenue",
+            "operator": "lte",
+            "value": 8000,
+            "description": "Monthly revenue is at or below $8,000"
+        }
+    ],
+    "documents_needed": [
+        "doc_business_license",
+        "doc_equipment_quote",
+        "doc_tax_id"
+    ],
+    "application_url": "https://example.org/ewdd/equipment-micro-grant",
+    "source_url": "https://example.org/ewdd/source-page",
+    "data_verified_date": "2026-04-17T19:08:42.490096"
+}

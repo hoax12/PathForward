@@ -1,0 +1,44 @@
+{
+    "program_id": "prog_retail_modernization_001",
+    "name": "Retail Modernization Grant",
+    "org_id": "org_la_smallbiz",
+    "org_name": "LA Small Business Recovery Fund",
+    "program_type": "grant",
+    "description": "Grant to help small retail businesses replace broken systems, improve storefront readiness, or buy essentials.",
+    "max_amount": 4000,
+    "speed_to_fund": "1-2_weeks",
+    "eligibility_criteria": [
+        {
+            "id": "crit_retail_business",
+            "type": "must",
+            "field": "business_type",
+            "operator": "equals",
+            "value": "retail",
+            "description": "Applicant operates a retail business"
+        },
+        {
+            "id": "crit_la_city_known",
+            "type": "must",
+            "field": "location.city",
+            "operator": "exists",
+            "value": true,
+            "description": "Business city is provided"
+        },
+        {
+            "id": "crit_equipment_or_inventory",
+            "type": "preferred",
+            "field": "urgent_needs",
+            "operator": "contains",
+            "value": "equipment",
+            "description": "Applicant needs equipment or inventory support"
+        }
+    ],
+    "documents_needed": [
+        "doc_business_license",
+        "doc_vendor_quote",
+        "doc_income_proof"
+    ],
+    "application_url": "https://example.org/la-smallbiz/retail-modernization",
+    "source_url": "https://example.org/la-smallbiz/source-page",
+    "data_verified_date": "2026-04-17T19:08:42.491611"
+}
