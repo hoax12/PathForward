@@ -1,1 +1,9 @@
-gemini
+# Web Framework
+fastapi
+uvicorn
+
+# Core Logic
+networkx
+pydantic
+
+google-generativeai 
