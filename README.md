@@ -87,3 +87,74 @@ Users receive a clear step-by-step plan on what to do next.
 ---
 
 ## 🏗️ System Design (High-Level)
+User Input → AI Understanding → Matching Engine → Ranking → Action Plan
+
+
+---
+
+## 🎯 Target Audience
+
+- Underbanked individuals  
+- Micro-business operators  
+- Freelancers / 1099 contractors  
+- Gig workers  
+
+---
+
+## 🌍 Demo Scope
+
+- Los Angeles County  
+- Uses realistic demo data  
+- Designed for real-world integration  
+
+---
+
+## 🔐 Data Privacy
+
+- Sensitive structured data stays within backend  
+- AI is used only for minimal context processing  
+- No automated decision-making by AI  
+
+---
+
+## 🚀 Getting Started
+
+### Backend
+
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate   # or venv\\Scripts\\activate (Windows)
+pip install -r requirements.txt
+python -m uvicorn main:app --reload --port 8000
+```
+
+### Frontend
+```bash
+cd frontend
+npm install
+npm run dev
+```
+🧪 Example Use Case
+
+A user with urgent financial needs receives:
+
+Relevant program recommendations
+Eligibility insights
+Required documentation
+Clear next steps
+
+💼 Business Model
+
+PathForward follows a B2B2C model:
+
+Institutions (government, NGOs, financial orgs) → platform customers
+Individuals → end users
+🔮 Future Work
+Real-time data integration
+Expanded geographic coverage
+Improved personalization
+Multilingual support
+🏁 Summary
+
+PathForward transforms complex financial systems into clear, actionable decisions.
