@@ -1,5 +1,6 @@
 🚀 PathForward
 AI-Powered Financial Benefits Routing System (LA County)
+
 🧠 Overview
 
 PathForward is an AI-powered decision-support and routing system designed to help underbanked individuals and micro-business operators quickly find and act on relevant financial assistance programs.
@@ -10,6 +11,7 @@ Users complete a 90-second intake, and PathForward returns:
 ✅ Explainable eligibility insights
 📄 Required documents
 🧭 Step-by-step action plan
+
 ❗ Problem
 
 Financial assistance programs are:
@@ -18,6 +20,7 @@ Fragmented across multiple platforms
 Difficult to understand
 Not personalized to user needs
 Time-consuming to navigate
+
 💡 Solution
 
 PathForward simplifies access to financial assistance by:
